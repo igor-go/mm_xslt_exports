@@ -1,0 +1,261 @@
+<!-- Freeplane XML Schema
+Version 0.3 [2014/09/10]
+
+Tested against Freeplane V 1.3.11
+1.2.x and previous versions might have some differences
+
+Igor Gartzia Olaizola --iolaizola-- (igor.go@gmail.com)
+
+Version 0.3 first release (iolaizola) 
+Version 0.4 more complexity added (iolaizola)
+ -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="map">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="node"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="node">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="cloud"/>
+          <xs:element ref="edge"/>
+          <xs:element ref="font"/>
+        <xs:element ref="icon"/>
+        <xs:element ref="node"/>
+        <xs:element ref="arrowlink"/>
+          <xs:element ref="attribute"/>
+          <xs:element ref="attribute_layout" minOccurs="0" />
+          <xs:element ref="hook"/>
+          <xs:element ref="richcontent"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="BACKGROUND_COLOR"/>
+      <xs:attribute name="COLOR"/>
+      <xs:attribute name="CREATED" use="required" type="xs:integer"/>    <xs:attribute name="FORMAT" type="xs:NCName"/>
+      <xs:attribute name="HGAP" type="xs:integer"/>
+      <xs:attribute name="ID" use="required" type="xs:NCName"/>
+      <xs:attribute name="LINK" type="xs:anyURI"/>
+      <xs:attribute name="LOCALIZED_STYLE_REF" type="xs:NCName"/>
+      <xs:attribute name="MODIFIED" use="required" type="xs:integer"/>
+      <xs:attribute name="POSITION" type="xs:NCName"/>
+      <xs:attribute name="STYLE" type="xs:NCName"/>
+      <xs:attribute name="TEXT"/>
+      <xs:attribute name="VGAP" type="xs:integer"/>
+      <xs:attribute name="VSHIFT" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+<xs:element name="arrowlink">
+    <xs:complexType>
+      <xs:attribute name="COLOR" use="required"/>
+      <xs:attribute name="DASH"/>
+      <xs:attribute name="DESTINATION" use="required" type="xs:NCName"/>
+      <xs:attribute name="ENDARROW" use="required" type="xs:NCName"/>
+      <xs:attribute name="ENDINCLINATION" use="required"/>
+      <xs:attribute name="FONT_FAMILY" use="required"/>
+      <xs:attribute name="FONT_SIZE" use="required" type="xs:integer"/>
+      <xs:attribute name="MIDDLE_LABEL"/>
+      <xs:attribute name="SHAPE" use="required" type="xs:NCName"/>
+      <xs:attribute name="STARTARROW" use="required" type="xs:NCName"/>
+      <xs:attribute name="STARTINCLINATION" use="required"/>
+      <xs:attribute name="TRANSPARENCY" use="required" type="xs:integer"/>
+      <xs:attribute name="WIDTH" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="hook">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="properties"  minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="map_styles"/>
+      </xs:sequence>
+      <xs:attribute name="COUNTER" type="xs:integer"/>
+      <xs:attribute name="NAME" use="required" type="xs:string"/>
+      <xs:attribute name="SIZE" type="xs:decimal"/>
+      <xs:attribute name="URI" type="xs:NMTOKEN"/>
+      <xs:attribute name="VALUE" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+      
+
+
+  <xs:element name="properties">
+    <xs:complexType>
+      <xs:attribute name="show_icon_for_attributes" use="required" type="xs:boolean"/>
+      <xs:attribute name="show_note_icons" use="required" type="xs:boolean"/>
+      <xs:attribute name="show_notes_in_map" use="optional" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="map_styles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="stylenode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="attribute_layout">
+    <xs:complexType>
+      <xs:attribute name="NAME_WIDTH" use="required" type="xs:integer"/>
+      <xs:attribute name="VALUE_WIDTH" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="attribute">
+    <xs:complexType>
+      <xs:attribute name="NAME" use="required" type="xs:string"/>
+      <xs:attribute name="OBJECT" use="optional" type="xs:string"/>
+      <xs:attribute name="VALUE" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="richcontent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="html"/>
+      </xs:sequence>
+      <xs:attribute name="HIDDEN" type="xs:boolean"/>
+      <xs:attribute name="TYPE" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="html">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="head"/>
+        <xs:element ref="body"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="head">
+    <xs:complexType/>
+  </xs:element>
+
+<!-- might be improved, is it correct when img is within p?-->
+  <xs:element name="body">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="img"/>
+        <xs:element  minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="img">
+    <xs:complexType>
+      <xs:attribute name="src" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+ <xs:element name="p">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="a"/>
+        <xs:element ref="font"/>
+        <xs:element ref="br"/>
+        <xs:element ref="i"/>
+      </xs:choice>
+      <xs:attribute name="style"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="br">
+    <xs:complexType/>
+  </xs:element>
+
+  <xs:element name="i">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="b"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="a">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="b"/>
+        <xs:element ref="font"/>
+      </xs:choice>
+      <xs:attribute name="href" use="required" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="b" type="xs:NCName"/>
+ 
+
+  <xs:element name="stylenode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="stylenode"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="font"/>
+          <xs:element ref="icon"/>
+          <xs:sequence>
+            <xs:element ref="edge"/>
+            <xs:element ref="cloud"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="COLOR"/>
+      <xs:attribute name="LOCALIZED_TEXT" use="required"/>
+      <xs:attribute name="MAX_WIDTH" type="xs:integer"/>
+      <xs:attribute name="MIN_WIDTH" type="xs:integer"/>
+      <xs:attribute name="POSITION" type="xs:NCName"/>
+      <xs:attribute name="STYLE" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="font">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="a"/>
+        <xs:element ref="b"/>
+      </xs:choice>
+      <xs:attribute name="BOLD" type="xs:boolean"/>
+      <xs:attribute name="ITALIC" type="xs:boolean"/>
+      <xs:attribute name="NAME"/>
+      <xs:attribute name="SIZE" type="xs:integer"/>
+      <xs:attribute name="size" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="icon">
+    <xs:complexType>
+      <xs:attribute name="BUILTIN" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="edge">
+    <xs:complexType>
+      <xs:attribute name="COLOR"/>
+      <xs:attribute name="STYLE" type="xs:NCName"/>
+      <xs:attribute name="WIDTH" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="cloud">
+    <xs:complexType>
+      <xs:attribute name="COLOR" use="required"/>
+      <xs:attribute name="SHAPE" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
