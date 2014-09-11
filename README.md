@@ -68,3 +68,5 @@ Images can be added either through Alt+Shift+K or by clicking on "Add Image". Th
 In vesion 1.3.x of freeplane, the previous method of introducing formulas has been deprecated. Now, there are two new methods instead. The first one is to put the tag \latex in the text. This case is not considered by this exporter. The other method is to change the Format properties of the node. In this case, the default format is "Standard" and for LaTeX formulas can be switched to "LaTeX". Then the text is rendered as LaTeX snippet. In this case, this pieces of text are considered as equations. If this LaTeX format belongs to a "theorem" environment (by using clouds), then a "equation" environment is created and the equation will be centered and numbered. For the rest, the text is simply introduce between "$ $".
 
 Old "hook" versions still work.
+
+<img src="http://soulshine.in/svgo.svg" width="200" height="200" alt="logo"/>
