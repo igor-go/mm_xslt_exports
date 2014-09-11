@@ -87,6 +87,13 @@
 <node TEXT="R_f(\alpha,s) = \int_{-\infty}^{\infty} f\big(  (t\sin\alpha+s\cos\alpha), (-t\cos\alpha+s\sin\alpha) \big)\, dt" ID="ID_1128634352" CREATED="1405530197598" MODIFIED="1405797398885" FORMAT="latexPatternFormat"/>
 </node>
 </node>
+<node TEXT="Slide block with {\color{red} \textbf{only}} \LaTeX formula" ID="ID_1171850322" CREATED="1410438749444" MODIFIED="1410439002319">
+<node TEXT="[]" ID="ID_671126326" CREATED="1410438794780" MODIFIED="1410438798897"/>
+<node TEXT="Theorem environment" ID="ID_180931983" CREATED="1405533303043" MODIFIED="1405550831488">
+<cloud COLOR="#f0f0f0" SHAPE="ARC"/>
+<node TEXT="R_f(\alpha,s) = \int_{-\infty}^{\infty} f\big(  (t\sin\alpha+s\cos\alpha), (-t\cos\alpha+s\sin\alpha) \big)\, dt" ID="ID_1360619451" CREATED="1405530197598" MODIFIED="1405797398885" FORMAT="latexPatternFormat"/>
+</node>
+</node>
 <node TEXT="Old method two column" ID="ID_671521477" CREATED="1405533324356" MODIFIED="1405550749318">
 <node TEXT="Images can be scaled through attributes" ID="ID_432508825" CREATED="1405793984893" MODIFIED="1405793994958"/>
 <node TEXT="This node can contain a text and an image" ID="ID_1378734270" CREATED="1405796931956" MODIFIED="1405797000148">
