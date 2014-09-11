@@ -69,4 +69,8 @@ In vesion 1.3.x of freeplane, the previous method of introducing formulas has be
 
 Old "hook" versions still work.
 
-<img src="http://imgh.us/freeplane_1.3.11_v0.5.svg"  alt="svg"/>
+# Freeplane Document format:  XML Schema (XSD)
+
+This repository includes an XSD representation of the Freeplane document format. The structure of the XSD can be seen in a [graphical representation](http://imgh.us/freeplane_1.3.11_v0.5.svg):
+
+<img src="http://imgh.us/freeplane_1.3.11_v0.5.svg"  width="750"  height="300" alt="svg"/>
