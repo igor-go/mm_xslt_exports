@@ -69,4 +69,4 @@ In vesion 1.3.x of freeplane, the previous method of introducing formulas has be
 
 Old "hook" versions still work.
 
-<img src="http://soulshine.in/svgo.svg" width="200" height="200" alt="logo"/>
+<img src="https://github.com/igor-go/mm_xslt_exports/blob/master/freeplane_1.3.x.svg" width="200" height="200" alt="logo"/>
