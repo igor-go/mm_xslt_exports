@@ -3,7 +3,9 @@ mm_xslt_exports
 
 
 
-XSLT filters to export from freemind and freeplane to other formats such as latex, latex-beamer and markdown
+XSLT filters to export from Freemind and [__Freeplane__](http://freeplane.sourceforge.net/wiki/index.php/Main_Page) to Latex Beamer slide format and create PDF Slides directly from mindmaps. Some other export option such as Markdown will be added in the future.
+
+The code has been specially adapted to Freeplane, some inconsistencies might arise when used with Freemind.
 
 Features
 
@@ -71,6 +73,6 @@ Old "hook" versions still work.
 
 # Freeplane Document format:  XML Schema (XSD)
 
-This repository includes an XSD representation of the Freeplane document format. The structure of the XSD can be seen in a [graphical representation](http://imgh.us/freeplane_1.3.11_v0.5.svg):
+This repository includes an XSD representation of the Freeplane document format (Version 1.3.x of Freeplane). The structure of the XSD can be seen in a [graphical representation](http://imgh.us/freeplane_1.3.11_v0.5.svg):
 
 <img src="http://imgh.us/freeplane_1.3.11_v0.5.svg"  width="750"  height="300" alt="svg"/>
