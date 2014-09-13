@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Freeplane XML Schema
 Version 0.3 [2014/09/10]
 
@@ -8,10 +9,11 @@ Igor Gartzia Olaizola -iolaizola- (igor.go@gmail.com)
 
 Version 0.3 first release (iolaizola) 2014/09/10
 Version 0.4 more complexity added (iolaizola) 2014/09/10
-Version 0.5 more complexity and restrictions added (iolaizola) 2014/09/11
+Version 0.5 more complexity and restrictions added (iolaizola) 2014/09/
+Version 0.6 more fixes according to the first multiple validation process.
  -->
 
-<?xml version="1.0" encoding="UTF-8"?>
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="map">
     <xs:complexType>
@@ -114,21 +116,21 @@ Version 0.5 more complexity and restrictions added (iolaizola) 2014/09/11
 
 <xs:element name="arrowlink">
     <xs:complexType>
-      <xs:attribute name="COLOR" use="required"/>
-      <xs:attribute name="DASH" use="required"/>
-      <xs:attribute name="DESTINATION" use="required" type="xs:NCName"/>
-      <xs:attribute name="ENDARROW" use="required" type="xs:NCName"/>
-      <xs:attribute name="ENDINCLINATION" use="required"/>
-      <xs:attribute name="FONT_FAMILY" use="required" type="xs:NCName"/>
-      <xs:attribute name="FONT_SIZE" use="required" type="xs:integer"/>
-      <xs:attribute name="MIDDLE_LABEL" use="required" type="xs:NCName"/>
-      <xs:attribute name="SHAPE" use="required" type="xs:NCName"/>
-      <xs:attribute name="SOURCE_LABEL" use="required" type="xs:NCName"/>
-      <xs:attribute name="STARTARROW" use="required" type="xs:NCName"/>
-      <xs:attribute name="STARTINCLINATION" use="required"/>
-      <xs:attribute name="TARGET_LABEL" use="required" type="xs:NCName"/>
-      <xs:attribute name="TRANSPARENCY" use="required" type="xs:integer"/>
-      <xs:attribute name="WIDTH" use="required" type="xs:integer"/>
+      <xs:attribute name="COLOR"/>
+      <xs:attribute name="DASH"/>
+      <xs:attribute name="DESTINATION" type="xs:string"/>
+      <xs:attribute name="ENDARROW"  type="xs:string"/>
+      <xs:attribute name="ENDINCLINATION" type="xs:string" />
+      <xs:attribute name="FONT_FAMILY"  type="xs:string"/>
+      <xs:attribute name="FONT_SIZE"  type="xs:integer"/>
+      <xs:attribute name="MIDDLE_LABEL"  type="xs:string"/>
+      <xs:attribute name="SHAPE"  type="xs:string"/>
+      <xs:attribute name="SOURCE_LABEL"  type="xs:string"/>
+      <xs:attribute name="STARTARROW"  type="xs:string"/>
+      <xs:attribute name="STARTINCLINATION" type="xs:string" />
+      <xs:attribute name="TARGET_LABEL"  type="xs:string"/>
+      <xs:attribute name="TRANSPARENCY"  type="xs:integer"/>
+      <xs:attribute name="WIDTH"  type="xs:integer"/>
     </xs:complexType>
   </xs:element>
 
@@ -317,7 +319,7 @@ Version 0.5 more complexity and restrictions added (iolaizola) 2014/09/11
            </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="WIDTH" type="xs:NCName"/>
+      <xs:attribute name="WIDTH" type="xs:string"/>
     </xs:complexType>
   </xs:element>
 
