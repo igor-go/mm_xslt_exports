@@ -6,6 +6,7 @@ mm_xslt_exports
 XSLT filters to export from Freemind and [__Freeplane__](http://freeplane.sourceforge.net/wiki/index.php/Main_Page) to Latex Beamer slide format and create PDF Slides directly from mindmaps. Some other export option such as Markdown will be added in the future.
 
 The code has been specially adapted to Freeplane, some inconsistencies might arise when used with Freemind.
+Last review have been done with Freeplane 1.3.x. Right now fixing some compatibility issues with Freeplane 1.5.x
 
 Features
 
@@ -47,6 +48,7 @@ Attributes
 * subtitle: subtitle text
 * institute: company name
 * date: date, \today puts automatically the current date
+* toc: "yes" enables Table of Contents
 
 ### Third level node:
 * framestyle: plain, shrink, squeeze, allowframebreaks and any other like "t" (top)
