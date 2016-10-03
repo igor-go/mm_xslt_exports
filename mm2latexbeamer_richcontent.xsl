@@ -69,7 +69,7 @@ Modified_ 16th of July 2014: Compatibility issues with ##1.3.x## version of free
 	2- Now there are more "hooks" because IMAGES can also be inserted as "hooks" therefore, the old equation filter "hook" has to be adjusted to the specific type "hook equation". Hooks with NAME=ExternalObject will be considered as images.
 Modified: 20th of July 2014: Some improvements. Usepackage can be used as an attribute in the main node. "fragile" frames can be defined. Notes are better formated.
 Modified: 20th July 2014: TeX formating improvements. Created LaTeX file is now easier to understand (improved tabs) [iolaizola 2.11]
-
+Modified: 03th October 2016:Optional Table of Contents enables as an attribute in root node. [iolaizola 2.12]
 Thanks to: Gorka Marcos and Myriam Alustiza for giving the xsl syntax support
 
 
@@ -96,12 +96,12 @@ http://freeplane.sourceforge.net/wiki/index.php/Main_Page
 \documentclass[usepdftitle=false,professionalfonts,compress ]{beamer}
 
 %Packages to be included
-\usepackage[latin1]{inputenc}
+%\usepackage[latin1]{inputenc}
 %\usepackage{beamerthemesplit}
 \usepackage{graphics,epsfig, subfigure}
 \usepackage{url}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[english]{babel}
 \usepackage{listings}
 \RequirePackage{eurosym}
 \usepackage{hyperref}
@@ -187,15 +187,25 @@ http://freeplane.sourceforge.net/wiki/index.php/Main_Page
 	%\frontpagelogo
 	\end{center}
 }
-\frame{
-	\tableofcontents[hideallsubsections]
-}
+
+</xsl:text>
+
+
+<xsl:if test="node/attribute/@NAME = 'toc'">
+  <xsl:if test="node/attribute[@NAME = 'toc']/@VALUE = 'yes' " >
+	<xsl:text>
+	\frame{
+		\tableofcontents[hideallsubsections]
+	}
+	</xsl:text>
+  </xsl:if>
+</xsl:if>
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% Content starts here %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-</xsl:text>
+
 
 
 
